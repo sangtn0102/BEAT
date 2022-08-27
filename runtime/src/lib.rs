@@ -107,6 +107,25 @@ pub mod opaque {
 	}
 }
 
+/// The native token, uses 18 decimals of precision.
+pub mod currency {
+	use super::Balance;
+
+	pub const OCTS: Balance = 1_000_000_000_000_000_000;
+
+	pub const UNITS: Balance = 1_000_000_000_000_000_000;
+	pub const DOLLARS: Balance = UNITS;
+	pub const CENTS: Balance = DOLLARS / 100;
+	pub const MILLICENTS: Balance = CENTS / 1_000;
+
+	pub const EXISTENSIAL_DEPOSIT: Balance = CENTS;
+	pub const BYTE_FEE: Balance = 10 * MILLICENTS;
+
+	pub const fn deposit(items: u32, bytes: u32) -> Balance {
+		(items as Balance) * DOLLARS + (bytes as Balance) * BYTE_FEE
+	}
+}
+
 // To learn more about runtime versioning and what each of the following value means:
 //   https://docs.substrate.io/v3/runtime/upgrades#runtime-versioning
 #[sp_version::runtime_version]
