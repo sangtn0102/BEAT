@@ -58,6 +58,9 @@ use static_assertions::const_assert;
 /// Import the template pallet.
 pub use pallet_template;
 
+/// Import the template room.
+pub use pallet_room;
+
 /// An index to a block.
 pub type BlockNumber = u32;
 
@@ -687,6 +690,12 @@ impl pallet_template::Config for Runtime {
 	type Event = Event;
 }
 
+/// Configure the pallet-room in pallets/room.
+impl pallet_room::Config for Runtime {
+	type Event = Event;
+	type RoomTime = Timestamp;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -719,6 +728,8 @@ construct_runtime!(
 		Sudo: pallet_sudo,
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template,
+		// Include the custom logic from the pallet-room in the runtime.
+		RoomModule: pallet_room,
 	}
 );
 
