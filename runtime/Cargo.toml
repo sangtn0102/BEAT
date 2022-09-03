@@ -1,5 +1,5 @@
 [package]
-name = "appchain-barnacle-runtime"
+name = "appchain-beat-runtime"
 version = "0.9.18"
 description = "A fresh FRAME-based appchain runtime, ready for hacking."
 authors = ["Octopus Network <hi@oct.network>"]

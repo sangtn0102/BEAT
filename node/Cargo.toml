@@ -1,5 +1,5 @@
 [package]
-name = "appchain-barnacle"
+name = "appchain-beat"
 version = "0.9.18"
 description = "A minimal template for octopus appchain."
 authors = ["Octopus Network <hi@oct.network>"]
@@ -14,7 +14,7 @@ build = "build.rs"
 targets = ["x86_64-unknown-linux-gnu"]
 
 [[bin]]
-name = "appchain-barnacle"
+name = "appchain-beat"
 
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
@@ -73,11 +73,11 @@ frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/parityte
 frame-benchmarking-cli = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.18" }
 
 # Local Dependencies
-appchain-barnacle-runtime = { version = "0.9.18", path = "../runtime" }
+appchain-beat-runtime = { version = "0.9.18", path = "../runtime" }
 
 [build-dependencies]
 substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.18" }
 
 [features]
 default = []
-runtime-benchmarks = ["appchain-barnacle-runtime/runtime-benchmarks"]
+runtime-benchmarks = ["appchain-beat-runtime/runtime-benchmarks"]
