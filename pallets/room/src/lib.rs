@@ -130,6 +130,8 @@ pub mod pallet {
 				let payout_block =
 					room.start.saturating_add(room.length).saturating_add(room.delay);
 				if payout_block <= n && room.is_started && !room.is_ended {}
+						UserDeposit::<T>::remove(user.clone());
+					<Rooms<T>>::insert(id, room);
 			}
 			0
 		}
